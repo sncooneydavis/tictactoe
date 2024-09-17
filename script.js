@@ -89,7 +89,7 @@ function manageGame() {
     };
 
     function resetGame() {
-        document.querySelector('#boardContainer').classList.remove('unclickable');
+        document.querySelector('#boardContainer').classList.remove('inactive');
         document.querySelector('#headerContainer').innerHTML = '';
         document.querySelector('#boardContainer').innerHTML = '';
         document.querySelector('#endContainer').innerHTML = '';
@@ -206,24 +206,34 @@ function makeBoard(id) {
                 document.querySelector('#boardContainer').classList.add('inactive');
             }    
         }
-        makeBoardSquaresUnclickable(subSquare);
+        makeBoardSquaresClickableOrUnclickable(subSquare);
         game.activePlayer.switchPlayer(); 
     }
 
-    function makeBoardSquaresUnclickable(squareToSelectFrom) {
-        for (square in game.bigBoard.boardSquares) {
-            if (square != squareToSelectFrom) {
-                for (subSquare in game.bigBoard.boardSquares[square].boardSquares) {
-                    document.querySelector(`.${square} .${subSquare}`).classList.add('inactive');
-                    document.querySelector(`.${square} .${subSquare}`).classList.remove('active');
-                }
-                
+    function makeBoardSquaresClickableOrUnclickable(squareToSelectFrom) {
+        for (let square in game.bigBoard.boardSquares) {
+                makeBoardSquaresUnclickable(square);
             }
-            else if (square == squareToSelectFrom) {
-                for (subSquare in game.bigBoard.boardSquares[square].boardSquares) {
-                    document.querySelector(`.${square} .${subSquare}`).classList.remove('inactive');
-                    document.querySelector(`.${square} .${subSquare}`).classList.add('active');
+        if (typeof game.bigBoard.boardSquares[squareToSelectFrom] != 'string') {
+            makeBoardSquaresClickable(squareToSelectFrom);
+        }
+        else {
+            for (let square in game.bigBoard.boardSquares) {
+                if (typeof game.bigBoard.boardSquares[square] != 'string') {
+                    makeBoardSquaresClickable(square);
                 }
+            }
+        } 
+        function makeBoardSquaresUnclickable(square) {
+            for (let subSquare in game.bigBoard.boardSquares[square].boardSquares) {
+                document.querySelector(`.${square} .${subSquare}`).classList.add('inactive');
+                document.querySelector(`.${square} .${subSquare}`).classList.remove('active');
+            } 
+        }
+        function makeBoardSquaresClickable(square) {
+            for (let subSquare in game.bigBoard.boardSquares[square].boardSquares) {
+                document.querySelector(`.${square} .${subSquare}`).classList.remove('inactive');
+                document.querySelector(`.${square} .${subSquare}`).classList.add('active');
             }
         }
     }
