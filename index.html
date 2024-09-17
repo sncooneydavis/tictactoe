@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="./style.css" rel="stylesheet">
+		<script src="./script.js" defer></script>
+		<title>SNCD</title>
+	</head>
+	<body>
+        <div id="allContainer">
+            <h1>Ultimate Tic Tac Toe</h1>
+            <div id="topContainer">
+                <div id="headerContainer">
+                    <!-- template here -->
+                </div>
+                <template id="headerTemplate">
+                    <div class="player x">
+                        <h2>
+                            Player X 
+                        </h2>
+                        <label for="playerxScore" class="score">
+                            Score: <input id="playerxScore" type="number" value = "0" readonly />
+                        </label>
+                    </div>
+                    <div class="player o inactive">
+                        <h2>
+                            Player O 
+                        </h2>
+                        <label for="playeroScore" class="score">
+                            Score: <input id="playeroScore" type="number" value = "0" readonly />
+                        </label>
+                    </div>
+                </template>
+                <div id="endContainer">
+                    <!-- template here -->
+                </div>
+                <template id="endTemplate">
+                    <h2 id="end-x-wins" class="x hidden">
+                        Player X Wins!
+                    </h2>
+                    <h2 id="end-y-wins" class="o hidden">
+                        Player O Wins!
+                    </h2>
+                    <h2 id="end-tie" class="tie hidden">
+                        Whomp whomp, no one wins.
+                    </h2>
+                    <button id="restart" type="button" class="hidden">
+                        Play Again
+                    </button>
+                </template>
+            </div>
+            <div id="boardContainer">
+                <!-- template here -->
+            </div>  
+            <template id="boardTemplate">
+                <div class="s1 box top left active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s2 box top center active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s3 box top right active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s4 box middle left active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s5 box middle center active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s6 box middle right active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s7 box bottom left active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s8 box bottom center active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+                <div class="s9 box bottom right active">
+                    <div class="x hidden">
+                        X
+                    </div>
+                    <div class="o hidden">
+                        O
+                    </div>
+                </div>
+            </template> 
+        </div>
+	</body>
+</html>
